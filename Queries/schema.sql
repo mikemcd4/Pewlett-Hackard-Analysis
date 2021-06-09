@@ -1,11 +1,4 @@
 -- Creating tables for PH-EmployeeDB
-CREATE TABLE departments (
-     dept_no VARCHAR(4) NOT NULL,
-     dept_name VARCHAR(40) NOT NULL,
-     PRIMARY KEY (dept_no),
-     UNIQUE (dept_name)
-);
-
 CREATE TABLE employees (
 	emp_no INT NOT NULL,
      birth_date DATE NOT NULL,
@@ -14,6 +7,13 @@ CREATE TABLE employees (
      gender VARCHAR NOT NULL,
      hire_date DATE NOT NULL,
      PRIMARY KEY (emp_no)
+);
+
+CREATE TABLE departments (
+     dept_no VARCHAR(4) NOT NULL,
+     dept_name VARCHAR(40) NOT NULL,
+     PRIMARY KEY (dept_no),
+     UNIQUE (dept_name)
 );
 
 CREATE TABLE dept_manager (
@@ -54,4 +54,6 @@ CREATE TABLE titles (
 	PRIMARY KEY (emp_no, title, from_date)
 );
 
-SELECT * FROM departments;
+SELECT first_name, last_name
+FROM employees
+WHERE birth_date BETWEEN '1952-01-01' AND '1955-12-31';
